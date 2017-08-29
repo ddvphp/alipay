@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.asset.point.order.create request
  *
  * @author auto create
- * @since 1.0, 2016-07-29 19:52:44
+ * @since 1.0, 2017-04-07 18:38:50
  */
 class AlipayAssetPointOrderCreateRequest
 {

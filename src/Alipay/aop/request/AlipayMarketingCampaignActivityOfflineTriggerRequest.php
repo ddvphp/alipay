@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.marketing.campaign.activity.offline.trigger request
  *
  * @author auto create
- * @since 1.0, 2016-05-23 14:35:31
+ * @since 1.0, 2017-04-07 19:06:57
  */
 class AlipayMarketingCampaignActivityOfflineTriggerRequest
 {

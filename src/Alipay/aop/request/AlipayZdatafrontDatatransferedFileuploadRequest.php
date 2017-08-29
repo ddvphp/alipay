@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.zdatafront.datatransfered.fileupload request
  *
  * @author auto create
- * @since 1.0, 2016-12-26 15:14:00
+ * @since 1.0, 2017-02-17 14:13:34
  */
 class AlipayZdatafrontDatatransferedFileuploadRequest
 {

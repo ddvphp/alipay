@@ -90,6 +90,32 @@ class AopClient {
 		return $stringToBeSigned;
 	}
 
+
+	//此方法对value做urlencode
+	public function getSignContentUrlencode($params) {
+		ksort($params);
+
+		$stringToBeSigned = "";
+		$i = 0;
+		foreach ($params as $k => $v) {
+			if (false === $this->checkEmpty($v) && "@" != substr($v, 0, 1)) {
+
+				// 转换成目标字符集
+				$v = $this->characet($v, $this->postCharset);
+
+				if ($i == 0) {
+					$stringToBeSigned .= "$k" . "=" . urlencode($v);
+				} else {
+					$stringToBeSigned .= "&" . "$k" . "=" . urlencode($v);
+				}
+				$i++;
+			}
+		}
+
+		unset ($k, $v);
+		return $stringToBeSigned;
+	}
+
 	protected function sign($data, $signType = "RSA") {
 		if($this->checkEmpty($this->rsaPrivateKeyFilePath)){
 			$priKey=$this->rsaPrivateKey;
@@ -358,10 +384,12 @@ class AopClient {
 		//签名
 		$totalParams["sign"] = $this->generateSign($totalParams, $this->signType);
 
-		if ("GET" == $httpmethod) {
-
+		if ("GET" == strtoupper($httpmethod)) {
+			
+			//value做urlencode
+			$preString=$this->getSignContentUrlencode($totalParams);
 			//拼接GET请求串
-			$requestUrl = $this->gatewayUrl."?".$preSignStr."&sign=".urlencode($totalParams["sign"]);
+			$requestUrl = $this->gatewayUrl."?".$preString;
 			
 			return $requestUrl;
 		} else {
@@ -371,6 +399,8 @@ class AopClient {
 
 
 	}
+
+
 
 	/**
      * 建立请求，以表单HTML形式构造（默认）
@@ -615,10 +645,10 @@ class AopClient {
 	 *  公钥是否是读取字符串还是读取文件，是根据初始化传入的值判断的。
 	 **/
 	public function rsaCheckV1($params, $rsaPublicKeyFilePath,$signType='RSA') {
-		$sign = $params['sign'];
-		$params['sign_type'] = null;
-		$params['sign'] = null;
-		return $this->verify($this->getSignContent($params), $sign, $rsaPublicKeyFilePath,$signType);
+			$sign = $params['sign'];
+			$params['sign_type'] = null;
+			$params['sign'] = null;
+			return $this->verify($this->getSignContent($params), $sign, $rsaPublicKeyFilePath,$signType);
 	}
 	public function rsaCheckV2($params, $rsaPublicKeyFilePath, $signType='RSA') {
 		$sign = $params['sign'];

@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.commerce.medical.instcard.bind request
  *
  * @author auto create
- * @since 1.0, 2016-03-25 22:06:30
+ * @since 1.0, 2017-03-01 18:24:48
  */
 class AlipayCommerceMedicalInstcardBindRequest
 {

@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.exsc.user.firstfundinpour.get request
  *
  * @author auto create
- * @since 1.0, 2017-01-06 16:38:16
+ * @since 1.0, 2017-04-07 16:23:40
  */
 class AlipayExscUserFirstfundinpourGetRequest
 {
