@@ -1,21 +1,16 @@
 <?php
 /**
- * ALIPAY API: alipay.asset.account.unbind request
+ * ALIPAY API: koubei.marketing.campaign.user.asset.query request
  *
  * @author auto create
- * @since 1.0, 2017-04-07 18:06:06
+ * @since 1.0, 2017-08-08 19:56:13
  */
-class AlipayAssetAccountUnbindRequest
+class KoubeiMarketingCampaignUserAssetQueryRequest
 {
 	/** 
-	 * 业务参数 使用该app提供用户信息的商户在支付宝签约时的支付宝账户userID，可以和app相同。
+	 * 用户口碑优惠资产查询接口
 	 **/
-	private $providerId;
-	
-	/** 
-	 * 用户在商户网站的会员标识。商户需确保其唯一性，不可变更。
-	 **/
-	private $providerUserId;
+	private $bizContent;
 
 	private $apiParas = array();
 	private $terminalType;
@@ -27,31 +22,20 @@ class AlipayAssetAccountUnbindRequest
     private $needEncrypt=false;
 
 	
-	public function setProviderId($providerId)
+	public function setBizContent($bizContent)
 	{
-		$this->providerId = $providerId;
-		$this->apiParas["provider_id"] = $providerId;
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
 
-	public function getProviderId()
+	public function getBizContent()
 	{
-		return $this->providerId;
-	}
-
-	public function setProviderUserId($providerUserId)
-	{
-		$this->providerUserId = $providerUserId;
-		$this->apiParas["provider_user_id"] = $providerUserId;
-	}
-
-	public function getProviderUserId()
-	{
-		return $this->providerUserId;
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()
 	{
-		return "alipay.asset.account.unbind";
+		return "koubei.marketing.campaign.user.asset.query";
 	}
 
 	public function setNotifyUrl($notifyUrl)

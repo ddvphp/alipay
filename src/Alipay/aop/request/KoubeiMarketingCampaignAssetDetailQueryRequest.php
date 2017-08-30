@@ -1,16 +1,16 @@
 <?php
 /**
- * ALIPAY API: alipay.trust.user.standard.verify.get request
+ * ALIPAY API: koubei.marketing.campaign.asset.detail.query request
  *
  * @author auto create
- * @since 1.0, 2015-02-06 13:10:24
+ * @since 1.0, 2017-08-08 19:56:05
  */
-class AlipayTrustUserStandardVerifyGetRequest
+class KoubeiMarketingCampaignAssetDetailQueryRequest
 {
 	/** 
-	 * 详见说明文档和代码样例
+	 * 查询资产的详情信息
 	 **/
-	private $aliTrustUserInfo;
+	private $bizContent;
 
 	private $apiParas = array();
 	private $terminalType;
@@ -22,20 +22,20 @@ class AlipayTrustUserStandardVerifyGetRequest
     private $needEncrypt=false;
 
 	
-	public function setAliTrustUserInfo($aliTrustUserInfo)
+	public function setBizContent($bizContent)
 	{
-		$this->aliTrustUserInfo = $aliTrustUserInfo;
-		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
 
-	public function getAliTrustUserInfo()
+	public function getBizContent()
 	{
-		return $this->aliTrustUserInfo;
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()
 	{
-		return "alipay.trust.user.standard.verify.get";
+		return "koubei.marketing.campaign.asset.detail.query";
 	}
 
 	public function setNotifyUrl($notifyUrl)

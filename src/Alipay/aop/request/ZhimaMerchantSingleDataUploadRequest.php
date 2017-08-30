@@ -1,22 +1,16 @@
 <?php
 /**
- * ALIPAY API: alipay.asset.account.get request
+ * ALIPAY API: zhima.merchant.single.data.upload request
  *
  * @author auto create
- * @since 1.0, 2017-04-07 18:05:33
+ * @since 1.0, 2017-05-27 22:38:09
  */
-class AlipayAssetAccountGetRequest
+class ZhimaMerchantSingleDataUploadRequest
 {
 	/** 
-	 * 使用该app提供用户信息的商户，可以和app相同。
+	 * 单条数据传入
 	 **/
-	private $providerId;
-	
-	/** 
-	 * 用户在商户网站的会员标识。商户需确保其唯一性，不可变更。
-注意：根据provider_user_id查询时该值不可空。
-	 **/
-	private $providerUserId;
+	private $bizContent;
 
 	private $apiParas = array();
 	private $terminalType;
@@ -28,31 +22,20 @@ class AlipayAssetAccountGetRequest
     private $needEncrypt=false;
 
 	
-	public function setProviderId($providerId)
+	public function setBizContent($bizContent)
 	{
-		$this->providerId = $providerId;
-		$this->apiParas["provider_id"] = $providerId;
+		$this->bizContent = $bizContent;
+		$this->apiParas["biz_content"] = $bizContent;
 	}
 
-	public function getProviderId()
+	public function getBizContent()
 	{
-		return $this->providerId;
-	}
-
-	public function setProviderUserId($providerUserId)
-	{
-		$this->providerUserId = $providerUserId;
-		$this->apiParas["provider_user_id"] = $providerUserId;
-	}
-
-	public function getProviderUserId()
-	{
-		return $this->providerUserId;
+		return $this->bizContent;
 	}
 
 	public function getApiMethodName()
 	{
-		return "alipay.asset.account.get";
+		return "zhima.merchant.single.data.upload";
 	}
 
 	public function setNotifyUrl($notifyUrl)

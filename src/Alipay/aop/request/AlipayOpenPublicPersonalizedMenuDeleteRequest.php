@@ -1,14 +1,14 @@
 <?php
 /**
- * ALIPAY API: alipay.commerce.medical.instcard.bind request
+ * ALIPAY API: alipay.open.public.personalized.menu.delete request
  *
  * @author auto create
- * @since 1.0, 2017-03-01 18:24:48
+ * @since 1.0, 2017-05-25 11:40:16
  */
-class AlipayCommerceMedicalInstcardBindRequest
+class AlipayOpenPublicPersonalizedMenuDeleteRequest
 {
 	/** 
-	 * 用于支付宝用户通过医院服务窗绑定当地社保卡
+	 * 个性化菜单删除
 	 **/
 	private $bizContent;
 
@@ -35,7 +35,7 @@ class AlipayCommerceMedicalInstcardBindRequest
 
 	public function getApiMethodName()
 	{
-		return "alipay.commerce.medical.instcard.bind";
+		return "alipay.open.public.personalized.menu.delete";
 	}
 
 	public function setNotifyUrl($notifyUrl)

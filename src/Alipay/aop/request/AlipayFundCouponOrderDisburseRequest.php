@@ -1,14 +1,14 @@
 <?php
 /**
- * ALIPAY API: alipay.trust.user.risk.summary.get request
+ * ALIPAY API: alipay.fund.coupon.order.disburse request
  *
  * @author auto create
- * @since 1.0, 2016-03-04 11:36:29
+ * @since 1.0, 2017-06-22 14:25:08
  */
-class AlipayTrustUserRiskSummaryGetRequest
+class AlipayFundCouponOrderDisburseRequest
 {
 	/** 
-	 * 描述用户信息
+	 * 受托打款接口
 	 **/
 	private $bizContent;
 
@@ -35,7 +35,7 @@ class AlipayTrustUserRiskSummaryGetRequest
 
 	public function getApiMethodName()
 	{
-		return "alipay.trust.user.risk.summary.get";
+		return "alipay.fund.coupon.order.disburse";
 	}
 
 	public function setNotifyUrl($notifyUrl)

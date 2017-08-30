@@ -1,14 +1,14 @@
 <?php
 /**
- * ALIPAY API: alipay.offline.market.leads.batchquery request
+ * ALIPAY API: alipay.open.public.life.label.delete request
  *
  * @author auto create
- * @since 1.0, 2017-02-07 16:46:29
+ * @since 1.0, 2017-08-02 13:55:21
  */
-class AlipayOfflineMarketLeadsBatchqueryRequest
+class AlipayOpenPublicLifeLabelDeleteRequest
 {
 	/** 
-	 * 通过该接口多组合条件查询口碑线下Leads信息
+	 * 标签删除接口
 	 **/
 	private $bizContent;
 
@@ -35,7 +35,7 @@ class AlipayOfflineMarketLeadsBatchqueryRequest
 
 	public function getApiMethodName()
 	{
-		return "alipay.offline.market.leads.batchquery";
+		return "alipay.open.public.life.label.delete";
 	}
 
 	public function setNotifyUrl($notifyUrl)

@@ -1,26 +1,12 @@
 <?php
 /**
- * ALIPAY API: alipay.trust.user.zminfo.pair.get request
+ * ALIPAY API: alipay.commerce.lottery.typelist.query request
  *
  * @author auto create
- * @since 1.0, 2015-02-06 13:09:24
+ * @since 1.0, 2017-07-24 14:38:00
  */
-class AlipayTrustUserZminfoPairGetRequest
+class AlipayCommerceLotteryTypelistQueryRequest
 {
-	/** 
-	 * 描述申请者的用户信息JSON串，身份证号，姓名等
-	 **/
-	private $applyUserInfo;
-	
-	/** 
-	 * 被申请人的用户信息JSON串
-	 **/
-	private $ownerUserInfo;
-	
-	/** 
-	 * 请求的芝麻信用信息类型，目前仅支持芝麻分
-	 **/
-	private $zmInfoType;
 
 	private $apiParas = array();
 	private $terminalType;
@@ -32,42 +18,9 @@ class AlipayTrustUserZminfoPairGetRequest
     private $needEncrypt=false;
 
 	
-	public function setApplyUserInfo($applyUserInfo)
-	{
-		$this->applyUserInfo = $applyUserInfo;
-		$this->apiParas["apply_user_info"] = $applyUserInfo;
-	}
-
-	public function getApplyUserInfo()
-	{
-		return $this->applyUserInfo;
-	}
-
-	public function setOwnerUserInfo($ownerUserInfo)
-	{
-		$this->ownerUserInfo = $ownerUserInfo;
-		$this->apiParas["owner_user_info"] = $ownerUserInfo;
-	}
-
-	public function getOwnerUserInfo()
-	{
-		return $this->ownerUserInfo;
-	}
-
-	public function setZmInfoType($zmInfoType)
-	{
-		$this->zmInfoType = $zmInfoType;
-		$this->apiParas["zm_info_type"] = $zmInfoType;
-	}
-
-	public function getZmInfoType()
-	{
-		return $this->zmInfoType;
-	}
-
 	public function getApiMethodName()
 	{
-		return "alipay.trust.user.zminfo.pair.get";
+		return "alipay.commerce.lottery.typelist.query";
 	}
 
 	public function setNotifyUrl($notifyUrl)

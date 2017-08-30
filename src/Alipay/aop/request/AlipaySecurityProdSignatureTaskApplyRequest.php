@@ -1,14 +1,14 @@
 <?php
 /**
- * ALIPAY API: alipay.marketing.campaign.drawcamp.trigger request
+ * ALIPAY API: alipay.security.prod.signature.task.apply request
  *
  * @author auto create
- * @since 1.0, 2017-03-23 14:22:11
+ * @since 1.0, 2017-08-04 11:14:29
  */
-class AlipayMarketingCampaignDrawcampTriggerRequest
+class AlipaySecurityProdSignatureTaskApplyRequest
 {
 	/** 
-	 * 营销抽奖活动触发
+	 * 支付宝可信电子签名申请
 	 **/
 	private $bizContent;
 
@@ -35,7 +35,7 @@ class AlipayMarketingCampaignDrawcampTriggerRequest
 
 	public function getApiMethodName()
 	{
-		return "alipay.marketing.campaign.drawcamp.trigger";
+		return "alipay.security.prod.signature.task.apply";
 	}
 
 	public function setNotifyUrl($notifyUrl)

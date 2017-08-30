@@ -3,7 +3,7 @@
  * ALIPAY API: alipay.offline.market.leads.qrcode.query request
  *
  * @author auto create
- * @since 1.0, 2016-07-26 17:42:58
+ * @since 1.0, 2017-07-12 17:50:16
  */
 class AlipayOfflineMarketLeadsQrcodeQueryRequest
 {

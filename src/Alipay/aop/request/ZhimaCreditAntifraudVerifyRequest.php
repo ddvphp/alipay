@@ -3,7 +3,7 @@
  * ALIPAY API: zhima.credit.antifraud.verify request
  *
  * @author auto create
- * @since 1.0, 2017-03-14 16:42:15
+ * @since 1.0, 2017-07-14 17:17:49
  */
 class ZhimaCreditAntifraudVerifyRequest
 {
