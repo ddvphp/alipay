@@ -50,7 +50,7 @@ class AopSdk
          */
         $lotusHome = $libRootDir . DIRECTORY_SEPARATOR . "lotusphp_runtime" . DIRECTORY_SEPARATOR;
         include($lotusHome . "Lotus.php");
-        $lotus = new Lotus;
+        $lotus = new \Lotus;
         $lotus->option["autoload_dir"] = $libRootDir . DIRECTORY_SEPARATOR . 'aop';
         $lotus->devMode = AOP_SDK_DEV_MODE;
         $lotus->defaultStoreDir = AOP_SDK_WORK_DIR;
