@@ -21,7 +21,7 @@ class Gateway {
 				$response_xml = "<success>true</success><biz_content>" . $config ['merchant_public_key'] . "</biz_content>";
 
 			} else { // echo $response_xml;
-				$response_xml = "<success>false</success><error_code>VERIFY_FAILED</error_code><biz_content>" . $config ['merchant_public_key_file'] . "</biz_content>";
+				$response_xml = "<success>false</success><error_code>VERIFY_FAILED</error_code><biz_content>" . $config ['merchant_public_key'] . "</biz_content>";
 			}
 			
 			$mysign=$as->alonersaSign($response_xml,$config['merchant_private_key'],$config['sign_type']);

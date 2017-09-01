@@ -54,5 +54,23 @@ class AopSdk
                 echo $e->getMessage();  
                 exit;  
         }  */
-    } 
+    }
+
+    //转换编码
+    public static function characetToUtf8($data) {
+        if (! empty ( $data )) {
+            $fileType = mb_detect_encoding ( $data, array (
+                'UTF-8',
+                'GBK',
+                'GB2312',
+                'LATIN1',
+                'BIG5'
+            ) );
+            if ($fileType != 'UTF-8') {
+                $data = mb_convert_encoding ( $data, 'UTF-8', $fileType );
+            }
+        }
+        return $data;
+    }
+
 }
