@@ -10,4 +10,5 @@ namespace DdvPhp;
  */
 class Alipay
 {
+
 }
