@@ -1,6 +1,11 @@
 <?php
+namespace DdvPhp\Alipay;
 
-require_once 'AopEncrypt.php';
+use \DdvPhp\Alipay\AopEncrypt;
+use \LtLogger;
+use \LtInflector;
+use \SignData;
+use \EncryptParseItem;
 
 class AopClient {
 	//应用ID
@@ -610,6 +615,7 @@ class AopClient {
 
 		$session = isset ($paramsArray["session"]) ? $paramsArray["session"] : null;
 
+		$requestClassName = '\\'.$requestClassName;
 		$req = new $requestClassName;
 		foreach ($paramsArray as $paraKey => $paraValue) {
 			$inflector->conf["separator"] = "_";

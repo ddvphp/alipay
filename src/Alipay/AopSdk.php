@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hua
- * Date: 2017/8/31
- * Time: 下午5:13
- */
-
 namespace DdvPhp\Alipay;
-
 /**
  * AOP SDK 入口文件
  * 请不要修改这个文件，除非你知道怎样修改以及怎样恢复
@@ -18,7 +10,7 @@ class AopSdk
 {
     public static function init(){
 
-        $libRootDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'lib';
+        $libRootDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../org';
         /**
          * 定义常量开始
          * 在include("AopSdk.php")之前定义这些常量，不要直接修改本文件，以利于升级覆盖

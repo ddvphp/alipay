@@ -1,4 +1,5 @@
 <?php
+namespace DdvPhp\Alipay;
 /**
  *   加密工具类
  *
