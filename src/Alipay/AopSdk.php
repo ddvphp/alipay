@@ -11,10 +11,15 @@ class AopSdk
 {
     public static $AOP_SDK_WORK_DIR = '/tmp/';
     public static $AOP_SDK_DEV_MODE = false;
+    public static $AOP_SDK_INITED = false;
     public static $libRootDir = '';
     public static $aopDir = '';
     public static $requestDir = '';
     public static function init($AOP_SDK_WORK_DIR = null, $AOP_SDK_DEV_MODE = false){
+        if (self::$AOP_SDK_INITED){
+            return;
+        }
+        self::$AOP_SDK_INITED = true
         if (!empty($AOP_SDK_WORK_DIR)) {
             self::$AOP_SDK_WORK_DIR = $AOP_SDK_WORK_DIR;
         }
