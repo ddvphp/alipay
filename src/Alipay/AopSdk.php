@@ -1,5 +1,6 @@
 <?php
 namespace DdvPhp\Alipay;
+use \DdvPhp\DdvUtil\String\Conversion;
 /**
  * AOP SDK 入口文件
  * 请不要修改这个文件，除非你知道怎样修改以及怎样恢复
@@ -73,4 +74,40 @@ class AopSdk
         return $data;
     }
 
+    /**
+     * 使用SDK执行接口请求
+     * @param unknown $request
+     * @param string $token
+     * @return Ambigous <boolean, mixed>
+     */
+    public static function aopclientRequestExecute($aopOrConfig, $token = NULL) {
+        if (is_array($aopOrConfig)){
+            $aopOrConfig = self::getAopClient($aopOrConfig);
+        }
+        if (!($aopOrConfig instanceof AopClient)){
+            throw new Exception('必须是一个aop实例化对象或者配置文件', 500, 'MUST_INSTANCEOF_AOP_RO_CONFIG_ARRAY');
+        }
+        $result = $aopOrConfig->execute($request, $token);
+        return $result;
+    }
+    public static function getAopClient($config, $apiVersion = '1.0'){
+        $config = self::getHumpConfig($config);
+        $aop = new AopClient();
+        $aop->apiVersion = $apiVersion;
+        isset($config['gatewayUrl']) && $aop->gatewayUrl = $config['gatewayUrl'];
+        isset($config['appId']) && $aop->gatewayUrl = $config['appId'];
+        isset($config['merchantPrivateKey']) && $aop->rsaPrivateKey = $config['merchantPrivateKey'];
+        isset($config['alipayPublicKey']) && $aop->alipayrsaPublicKey = $config['alipayPublicKey'];
+        isset($config['signType']) && $aop->signType = $config['signType'];
+        return $aop;
+    }
+    public static function getHumpConfig($config){
+        foreach ($config as $key => $value) {
+            $keyt = self::underlineToHump($key);
+            if ($keyt!==$key){
+                unset($config[$key]);
+            }
+        }
+        return $config;
+    }
 }
