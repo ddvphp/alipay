@@ -1,6 +1,8 @@
 <?php
 namespace DdvPhp\Alipay;
 
+require_once 'AopEncrypt.php';
+
 use \DdvPhp\Alipay\AopEncrypt;
 use \LtLogger;
 use \LtInflector;
