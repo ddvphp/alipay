@@ -117,7 +117,7 @@ class AopSdk
     }
     public static function getHumpConfig($config){
         foreach ($config as $key => $value) {
-            $keyt = self::underlineToHump($key);
+            $keyt = Conversion::underlineToHump($key);
             if ($keyt!==$key){
                 unset($config[$key]);
             }
