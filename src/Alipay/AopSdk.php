@@ -108,11 +108,13 @@ class AopSdk
         }
         $aop = new AopClient();
         $aop->apiVersion = $apiVersion;
+        var_dump($config);
         isset($config['gatewayUrl']) && $aop->gatewayUrl = $config['gatewayUrl'];
         isset($config['appId']) && $aop->gatewayUrl = $config['appId'];
         isset($config['merchantPrivateKey']) && $aop->rsaPrivateKey = $config['merchantPrivateKey'];
         isset($config['alipayPublicKey']) && $aop->alipayrsaPublicKey = $config['alipayPublicKey'];
         isset($config['signType']) && $aop->signType = $config['signType'];
+        dd($aop);
         return $aop;
     }
     public static function getHumpConfig($config){
