@@ -46,15 +46,17 @@ class AopSdk
 
     }
     public static function autoload($name){
-        var_dump($name);die;
-        /* 
-        global $apiHome;  
-        try {  
-                include $apiHome.'top/request/'.$name.'.php';  
-        }catch (Exception $e){  
-                echo $e->getMessage();  
-                exit;  
-        }  */
+        $filePath = self::$aopDir.DIRECTORY_SEPARATOR.$name.'.php';
+        if (!is_file($filePath)){
+            $filePath = self::$requestDir.DIRECTORY_SEPARATOR.$name.'.php';
+        }
+        if (is_file($filePath)){
+            try {
+                include $filePath;
+            }catch (Exception $e){
+                throw new Exception('autoload alipay file fail', 500, 'AUTOLOAD_ALIPAY_FILE_FAIL');
+            }
+        }
     }
 
     //转换编码
