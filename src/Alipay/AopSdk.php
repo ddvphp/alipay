@@ -90,8 +90,22 @@ class AopSdk
         $result = $aopOrConfig->execute($request, $token);
         return $result;
     }
-    public static function getAopClient($config, $apiVersion = '1.0'){
+    public static function getAopClient($config, $isMustConfig = false, $apiVersion = '1.0'){
         $config = self::getHumpConfig($config);
+        if ($isMustConfig){
+            if (empty($config['appId'])){
+                throw new Exception('appId must config', 500, 'APP_ID_MUST_CONFIG');
+            }
+            if (empty($config['gatewayUrl'])){
+                throw new Exception('gatewayUrl must config', 500, 'GATEWAY_URL_MUST_CONFIG');
+            }
+            if (empty($config['alipayPublicKey'])){
+                throw new Exception('alipayPublicKey must config', 500, 'ALIPAY_PUBLIC_KEY_MUST_CONFIG');
+            }
+            if (empty($config['merchantPrivateKey'])){
+                throw new Exception('merchantPrivateKey must config', 500, 'MERCHANT_PRIVATE_KEY_MUST_CONFIG');
+            }
+        }
         $aop = new AopClient();
         $aop->apiVersion = $apiVersion;
         isset($config['gatewayUrl']) && $aop->gatewayUrl = $config['gatewayUrl'];
