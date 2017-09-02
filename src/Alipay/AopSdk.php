@@ -19,7 +19,7 @@ class AopSdk
         if (self::$AOP_SDK_INITED){
             return;
         }
-        self::$AOP_SDK_INITED = true
+        self::$AOP_SDK_INITED = true;
         if (!empty($AOP_SDK_WORK_DIR)) {
             self::$AOP_SDK_WORK_DIR = $AOP_SDK_WORK_DIR;
         }
