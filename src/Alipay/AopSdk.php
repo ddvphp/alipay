@@ -96,9 +96,6 @@ class AopSdk
             if (empty($config['appId'])){
                 throw new Exception('appId must config', 500, 'APP_ID_MUST_CONFIG');
             }
-            if (empty($config['gatewayUrl'])){
-                throw new Exception('gatewayUrl must config', 500, 'GATEWAY_URL_MUST_CONFIG');
-            }
             if (empty($config['alipayPublicKey'])){
                 throw new Exception('alipayPublicKey must config', 500, 'ALIPAY_PUBLIC_KEY_MUST_CONFIG');
             }
