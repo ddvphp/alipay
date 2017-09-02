@@ -82,7 +82,7 @@ class AopSdk
      * @param string $token
      * @return Ambigous <boolean, mixed>
      */
-    public static function aopclientRequestExecute($aopOrConfig, $token = NULL) {
+    public static function aopclientRequestExecute($aopOrConfig, $request, $token = NULL) {
         if (is_array($aopOrConfig)){
             $aopOrConfig = self::getAopClient($aopOrConfig);
         }
