@@ -25,9 +25,11 @@ class AopSdk
         self::$libRootDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../org';
         self::$aopDir = self::$libRootDir . DIRECTORY_SEPARATOR . 'aop';
         self::$requestDir = self::$aopDir . DIRECTORY_SEPARATOR . 'request';
+        // 注册自动载入
         spl_autoload_register(AopSdk::class.'::autoload');
 
     }
+    // 自动加载
     public static function autoload($name){
         $filePath = self::$aopDir.DIRECTORY_SEPARATOR.$name.'.php';
         if (!is_file($filePath)){
@@ -76,18 +78,26 @@ class AopSdk
         return $result;
     }
     public static function getAopClient($config, $isMustConfig = false, $apiVersion = '1.0'){
+        // 自动初始化
+        AopSdk::init();
+        // 把配置转驼峰key
         $config = self::getHumpConfig($config);
+        // 如果需要判断必填配置
         if ($isMustConfig){
+            // appId必填配置
             if (empty($config['appId'])){
                 throw new Exception('appId must config', 500, 'APP_ID_MUST_CONFIG');
             }
+            // 支付宝公钥必须配置
             if (empty($config['alipayPublicKey'])){
                 throw new Exception('alipayPublicKey must config', 500, 'ALIPAY_PUBLIC_KEY_MUST_CONFIG');
             }
+            // 应用私钥必须配置
             if (empty($config['merchantPrivateKey'])){
                 throw new Exception('merchantPrivateKey must config', 500, 'MERCHANT_PRIVATE_KEY_MUST_CONFIG');
             }
         }
+        // 实例化客户端
         $aop = new AopClient();
         $aop->apiVersion = $apiVersion;
         isset($config['gatewayUrl']) && $aop->gatewayUrl = $config['gatewayUrl'];
