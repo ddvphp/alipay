@@ -3,6 +3,13 @@ namespace DdvPhp\Alipay\Service;
 
 use DdvPhp\Alipay\AopSdk;
 use DdvPhp\Alipay\AopClient;
+
+use AlipayTradeWapPayRequest;
+use AlipayTradePagePayRequest;
+use AlipayTradeQueryRequest;
+use AlipayTradeRefundRequest;
+use AlipayTradeCloseRequest;
+use AlipayTradeFastpayRefundQueryRequest;
 /* *
  * 功能：支付宝电脑手机网站支付
  * 版本：2.0
@@ -38,7 +45,7 @@ class AlipayTradeService {
 
 	function __construct($config){
         // 把配置转驼峰key
-        $config = self::getHumpConfig($config);
+        $config = AopSdk::getHumpConfig($config);
 		$this->gateway_url = $config['gatewayUrl'];
 		$this->appid = $config['appId'];
 		$this->private_key = $config['merchantPrivateKey'];
@@ -250,7 +257,7 @@ class AlipayTradeService {
 	function writeLog($text) {
 		// $text=iconv("GBK", "UTF-8//IGNORE", $text);
 		//$text = characet ( $text );
-		file_put_contents ( rtrim(AopSdk::$aopSdkWorkDir, '\\/') . '/' . "logs/log.txt", date ( "Y-m-d H:i:s" ) . "  " . $text . "\r\n", FILE_APPEND );
+		//file_put_contents ( rtrim(AopSdk::$aopSdkWorkDir, '\\/') . '/' . "logs/log.txt", date ( "Y-m-d H:i:s" ) . "  " . $text . "\r\n", FILE_APPEND );
 	}
 }
 
