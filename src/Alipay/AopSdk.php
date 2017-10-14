@@ -12,6 +12,7 @@ class AopSdk
     public static $aopSdkWorkDir = '/tmp/';
     public static $libRootDir = '';
     public static $aopDir = '';
+    public static $builderModelDir = '';
     public static $requestDir = '';
     private static $aopSdkInited = false;
     public static function init($aopSdkWorkDir = null){
@@ -24,6 +25,7 @@ class AopSdk
         }
         self::$libRootDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../org';
         self::$aopDir = self::$libRootDir . DIRECTORY_SEPARATOR . 'aop';
+        self::$builderModelDir = self::$libRootDir . DIRECTORY_SEPARATOR . 'buildermodel';
         self::$requestDir = self::$aopDir . DIRECTORY_SEPARATOR . 'request';
         // 注册自动载入
         spl_autoload_register(AopSdk::class.'::autoload');
@@ -31,9 +33,13 @@ class AopSdk
     }
     // 自动加载
     public static function autoload($name){
-        $filePath = self::$aopDir.DIRECTORY_SEPARATOR.$name.'.php';
-        if (!is_file($filePath)){
+        $nameLast7 = substr($name, -7);
+        if ($nameLast7==='Request'){
             $filePath = self::$requestDir.DIRECTORY_SEPARATOR.$name.'.php';
+        }elseif($nameLast7==='Builder'){
+            $filePath = self::$builderModelDir.DIRECTORY_SEPARATOR.$name.'.php';
+        }else{
+            $filePath = self::$aopDir.DIRECTORY_SEPARATOR.$name.'.php';
         }
         if (is_file($filePath)){
             try {
@@ -77,6 +83,15 @@ class AopSdk
         $result = $aopOrConfig->execute($request, $token);
         return $result;
     }
+
+    /**
+     * 获取一个 AopClient 实例化的实例
+     * @param array $config
+     * @param bool $isMustConfig
+     * @param string $apiVersion
+     * @return AopClient
+     * @throws Exception
+     */
     public static function getAopClient($config, $isMustConfig = false, $apiVersion = '1.0'){
         // 自动初始化
         AopSdk::init();
